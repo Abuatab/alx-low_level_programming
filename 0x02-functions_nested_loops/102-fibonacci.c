@@ -6,29 +6,22 @@
  */
 
 int main(void)
-
 {
-	long int i, j, k, l;
+int i;
+int prev = 1;
+int curr = 2;
+int next;
 
-	j = 1;
-	k = 2;
+for (i = 0; i < 50; i++)
+{
+	printf("%d, ", prev);
 
-	for (i = 1; i <= 50; ++i)
-	{
-		if (j != 20365011074)
-		{
-			printf("%ld, ", j);
-		}
+	next = prev + curr;
+	prev = curr;
+	curr = next;
+}
 
-		else
-		{
-			printf("%ld\n", j);
-		}
+printf("\n");
 
-		l = j + k;
-		j = k;
-		k = l;
-	}
-
-	return (0);
+return (0);
 }
