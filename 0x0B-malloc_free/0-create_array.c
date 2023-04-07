@@ -1,4 +1,3 @@
-#include <stdlib.h>
 #include "main.h"
 /**
  * create_array - creates an array dynamically
@@ -10,20 +9,19 @@
 char *create_array(unsigned int size, char c)
 
 {
-	int i;
-        char *s = (char *) malloc(size * sizeof(int));
-
-        if (s == NULL || size == 0)
-        {
-                return (NULL);
-        }
-	else
+int i;
+char *s = (char *) malloc(size * sizeof(char));
+if (s == NULL || size == 0)
+{
+	return (NULL);
+}
+else
+{
+	for (i = 0; i < (int)size; i++)
 	{
-		for (i = 0; i < (int)size; i++)
-		{
-			s[i] = c;
-		}
-		return (s);
+		s[i] = c;
 	}
-        free(s);
+	return (s);
+}
+free(s);
 }
