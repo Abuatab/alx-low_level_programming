@@ -13,7 +13,7 @@ int _strlen(char *str)
 	{
 		;
 	}
-	return (i + 1);
+	return (i);
 }
 
 /**
@@ -24,11 +24,6 @@ int _strlen(char *str)
 
 char *_strdup(char *str)
 {
-	if (str == 0)
-	{
-		return (NULL);
-	}
-
 	int i;
 	char *s = (char *) malloc(_strlen(str) * sizeof(char));
 
@@ -36,7 +31,7 @@ char *_strdup(char *str)
 	{
 		return (NULL);
 	}
-	for (i = 0; i <= _strlen(str); i++)
+	for (i = 0; i < _strlen(str); i++)
 	{
 		s[i] = str[i];
 	}
