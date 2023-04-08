@@ -1,5 +1,4 @@
-#include <stdio.h>
-#include <stdlib.h>
+#include "main.h"
 /**
  *_strlen - counts the number of elements in a string
  *@str: the string or to be counted
