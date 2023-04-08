@@ -13,7 +13,7 @@ int _strlen(char *str)
 	{
 		;
 	}
-	return (i + 1);
+	return (i);
 }
 
 /**
