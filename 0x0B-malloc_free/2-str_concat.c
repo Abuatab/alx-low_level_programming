@@ -1,5 +1,4 @@
-#include <stdio.h>
-#include <stdlib.h>
+#include "main.h"
 
 /**
  *_strlen - counts the number of elements in a string
@@ -27,11 +26,12 @@ int _strlen(char *str)
 
 char *str_concat(char *s1, char *s2)
 {
-	int i, j, k, l;
+	int i, j, k;
+	char *s;
 
 	j = _strlen(s1);
 	k = _strlen(s2);
-	char *s = (char *) malloc((j + k) * sizeof(char));
+	s = (char *)malloc((j + k) * sizeof(char));
 
 	if (s == NULL)
 	{
