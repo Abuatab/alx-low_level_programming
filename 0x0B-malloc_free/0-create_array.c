@@ -4,7 +4,7 @@
 /**
  * create_array - creates an array to be filled with characters
  * @size: The size of the array
- * @char: The character to fill in the array
+ * @c: The character to fill in the array
  * Return: Always 0(Success)
  */
 
@@ -22,5 +22,5 @@ char *create_array(unsigned int size, char c)
 	{
 		p[i] = c;
 	}
-	return p;
+	return (p);
 }
