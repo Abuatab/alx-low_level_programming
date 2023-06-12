@@ -34,12 +34,12 @@ char *_strdup(char *str)
 	{
 		return (NULL);
 	}
-	p = malloc(sizeof(int) * _strlen(str));
+	p = malloc((sizeof(int) * _strlen(str)) + 1);
 	if (p == NULL)
 	{
 		return (NULL);
 	}
-	for (i = 0; i < _strlen(str); i++)
+	for (i = 0; i <= _strlen(str); i++)
 	{
 		p[i] = str[i];
 	}
