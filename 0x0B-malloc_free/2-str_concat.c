@@ -31,7 +31,20 @@ char *str_concat(char *s1, char *s2)
 	int i, tmp;
 	char *p;
 
+	if (s1 == NULL)
+	{
+		s1 = "";
+	}
+	if (s2 == NULL)
+	{
+		s2 = "";
+	}
 	p = malloc((sizeof(char) * (_strlen(s1) + _strlen(s2))) + 1);
+
+	if (p == NULL)
+	{
+		return (NULL);
+	}
 	for (i = 0; i < _strlen(s1); i++)
 	{
 		p[i] = s1[i];
@@ -41,6 +54,5 @@ char *str_concat(char *s1, char *s2)
 	{
 		p[tmp] = s2[i];
 	}
-	printf("%d\n", _strlen(p));
 	return (p);
 }
