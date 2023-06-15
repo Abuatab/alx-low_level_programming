@@ -20,7 +20,7 @@ int _strlen(char *s)
 }
 
 /**
- *string_nconcat - concatenates s1 to n elements of s2
+ *string_nconcat - concatenates s1 to n bytes of s2
  *@s1: The first srtring
  *@s2: The second string
  *@n: The number of strings from s2 to concatenate to s1
