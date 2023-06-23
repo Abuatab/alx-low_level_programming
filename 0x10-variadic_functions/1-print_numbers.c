@@ -1,3 +1,6 @@
+#include <stdio.h>
+#include <stdarg.h>
+
 /**
  * print_numbers - Prints numbers followed by a new line
  * @separator: A character for separating the numbers
@@ -6,7 +9,7 @@
  */
 void print_numbers(const char *separator, const unsigned int n, ...)
 {
-	int i, x;
+	int i;
 	va_list args;
 
 	va_start(args, n);
@@ -15,7 +18,7 @@ void print_numbers(const char *separator, const unsigned int n, ...)
 		printf("%d", va_arg(args, int));
 		if (separator)
 		{
-			if (i != n - 1)
+			if ((unsigned int)i != n - 1)
 			{
 				printf("%s", separator);
 			}
