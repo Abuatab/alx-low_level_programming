@@ -7,7 +7,7 @@
  * Return: int i
  */
 
-int _strlen(char *s)
+int _strlen(const char *const s)
 {
 	int i = 0;
 
@@ -44,7 +44,7 @@ void print_all(const char *const format, ...)
 			printf("%d", va_arg(args, int));
 			break;
 		case 'f':
-			printf("%lf", va_arg(args, double));
+			printf("%f", va_arg(args, double));
 			break;
 		case 's':
 			str = va_arg(args, char *);
