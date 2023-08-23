@@ -1,4 +1,5 @@
 #include "main.h"
+#define BUFFER_SIZE 1024
 
 /**
  * main - Copies a files content to another
@@ -10,8 +11,8 @@
 int main(int ac, char **av)
 {
 	int fd, fd2;
-	ssize_t rd_rt;
-	char *buf;
+	ssize_t rd_rt, wr_rt;
+	char buf[BUFFER_SIZE];
 
 	if (ac != 3)
 	{
@@ -24,15 +25,26 @@ int main(int ac, char **av)
 		dprintf(2, "Error: Can't read from file %s\n", av[1]);
 		exit(98);
 	}
-	fd2 = open(av[2], O_CREAT | O_WRONLY | O_TRUNC, S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH);
+	fd2 = open(av[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
 	if (fd2 < 0)
 	{
 		dprintf(2, "Error: Can't write to %s\n", av[2]);
 		exit(99);
 	}
-	buf = malloc(1024);
-	rd_rt = read(fd, buf, 1024);
-	write(fd2, buf, rd_rt);
+	while ((rd_rt = read(fd, buf, BUFFER_SIZE)) > 0)
+	{
+		wr_rt = write(fd2, buf, rd_rt);
+		if (wr_rt < 0 || wr_rt != rd_rt)
+		{
+			dprintf(2, "Error: Can't write to %s\n", av[2]);
+			exit(99);
+		}
+	}
+	if (rd_rt < 0)
+	{
+		dprintf(2, "Error: Can't read from file %s\n", av[1]);
+		exit(98);
+	}
 	if (close(fd) < 0)
 	{
 		dprintf(2, "Error: Can't close fd %d\n", fd);
@@ -43,8 +55,5 @@ int main(int ac, char **av)
 		dprintf(2, "Error: Can't close fd %d\n", fd2);
 		exit(100);
 	}
-	free(buf);
-	close(fd);
-	close(fd2);
 	return (0);
 }
