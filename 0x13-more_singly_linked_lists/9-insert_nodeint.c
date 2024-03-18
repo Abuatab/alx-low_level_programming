@@ -15,11 +15,6 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 	if (*head == NULL)
 		return (NULL);
 	traverser = *head;
-	ptr = malloc(sizeof(listint_t));
-	if (ptr == NULL)
-		return (NULL);
-	ptr->n = n;
-	ptr->next = NULL;
 
 	while (traverser && idx > 1)
 	{
@@ -28,6 +23,10 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 		traverser = traverser->next;
 		idx--;
 	}
+	ptr = malloc(sizeof(listint_t));
+	if (ptr == NULL)
+		return (NULL);
+	ptr->n = n;
 	ptr->next = traverser->next;
 	traverser->next = ptr;
 	return (ptr);
