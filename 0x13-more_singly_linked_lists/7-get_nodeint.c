@@ -14,9 +14,11 @@ listint_t *get_nodeint_at_index(listint_t *head, unsigned int index)
 	if (head == NULL)
 		return (NULL);
 	traverser = head;
-	while (index > 0)
+	while (traverser && index > 0)
 	{
 		traverser = traverser->next;
+		if (traverser == NULL)
+			return (NULL);
 		index--;
 	}
 	return (traverser);
