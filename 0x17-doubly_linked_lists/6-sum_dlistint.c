@@ -1,12 +1,12 @@
 #include "lists.h"
 
 /**
- * sum_listint - sums the n value of the list
+ * sum_dlistint - sums the n value of the list
  * @head: the list
  * Return: the sum of all the data(n)
  */
 
-int sum_listint(listint_t *head)
+int sum_dlistint(dlistint_t *head)
 {
 	int sum;
 
